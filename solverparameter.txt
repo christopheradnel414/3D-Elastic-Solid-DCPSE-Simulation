@@ -1,0 +1,38 @@
+geometry_file_name: geometries/geom_data.txt
+geometry_parameter_file_name: geometries/geom_param.txt
+result_file_name: result/result.txt
+neighbour_search_method: 2
+cutoff_ratio_scale: 5.5001
+desired_neighbour_number: 50
+boundary_plot_method: 2
+linear_system_solver: 2
+iterative_solver_preconditioner: 1
+iterative_solver_tolerance: 0.001
+iterative_solver_iteration_limit: 50000
+iterative_solver_multithreading_cpu: 4
+
+#######################################
+
+neighbour_search_method:
+- "1" -> constant cut off radius
+- "2" -> constant number of neighbours
+
+scaled_cutoff_ratio:
+"Cut off ratio = "cutoff_ratio_scale"*"particle_spacing"
+
+boundary_plot_method:
+- "1" -> all particles result are written for plotter
+- "2" -> without dirichlet(displacement) boundary nodes
+- "3" -> without both dirichlet and neumann(traction) boundary nodes
+
+linear_solver:
+- "1" -> direct solver (LU Decomposition)
+- "2" -> iterative solver (BiCGSTAB)
+
+iterative_solver_preconditioner:
+-"1" -> Jacobi preconditioner
+-"2" -> Incomplete LUT preconditioner
+
+iterative_solver_iteration_limit:
+-"0" -> default iteration limit (problem size/5)
+-"{positive integer}" -> set the iteration limit manually
