@@ -15,13 +15,13 @@ This repository mainly consists of 3 parts:
 The main Solver is written in C++ and utilizes the Eigen (https://eigen.tuxfamily.org) library as the sparse linear algebra engine. The main solver takes into input a .txt file containing point clouds, each anotated with the constraint and condition of the nodes (inner node, dirichlet boundary node, neumann boundary node, etc) and outputs a .txt file of the simulation results containing the node displacements, stresses, and strains. This solver works by solving the Static Navier-Cauchy equations (https://en.wikipedia.org/wiki/Linear_elasticity) using DCPSE discretization method. The 3D Static Navier-Cauchy equations can be written as follows:
 
 1. Static Navier-Cauchy for Inner Nodes:
-<img height="100" alt="Screenshot 2023-07-27 at 00 42 36" src="//github.com/christopheradnel414/3D-Elastic-Solid-DCPSE-Simulation/assets/41734037/9cb4042f-1cfe-47fd-8664-9b48e45b1723">
+<img height="150" alt="Screenshot 2023-07-27 at 00 42 36" src="https://github.com/christopheradnel414/3D-Elastic-Solid-DCPSE-Simulation/assets/41734037/29a2d53f-3812-4522-a876-ef5df9c4b80e">
 
 2. Static Navier-Cauchy for Neumann Nodes (Traction/Force Boundary):
-<img height="100" alt="Screenshot 2023-07-27 at 00 42 46" src="https://github.com/christopheradnel414/3D-Elastic-Solid-DCPSE-Simulation/assets/41734037/81041bd6-2f87-450e-94a0-3a000ed93ba0">
+<img height="150" alt="Screenshot 2023-07-27 at 00 42 46" src="https://github.com/christopheradnel414/3D-Elastic-Solid-DCPSE-Simulation/assets/41734037/81041bd6-2f87-450e-94a0-3a000ed93ba0">
 
 3. Static Navier-Cauchy for Dirichlet Nodes (Displacement Boundary):
-<img height="70" alt="Screenshot 2023-07-27 at 00 42 58" src="https://github.com/christopheradnel414/3D-Elastic-Solid-DCPSE-Simulation/assets/41734037/20cfaae0-bac4-4e53-b32c-ccf551d9a302">
+<img height="100" alt="Screenshot 2023-07-27 at 00 42 58" src="https://github.com/christopheradnel414/3D-Elastic-Solid-DCPSE-Simulation/assets/41734037/20cfaae0-bac4-4e53-b32c-ccf551d9a302">
 
 There are many methods that can be used to solve the Static Navier-Cauchy Equations (e.g, finite difference, finite element, SPH, etc) which I discussed in more detail on my journal (https://journals.itb.ac.id/index.php/jets/article/view/17606). Here, we are only interested in using DCPSE as our discretization method to solve the Navier-Cauchy equation. DCPSE operator as introduced by Schrader,2010 (https://publications.mpi-cbg.de/Schrader_2010_4838.pdf) approximates the value and spatial gradients of a field function as a linear combination of the neighbouring nodes function values. This is written as follows:
 
